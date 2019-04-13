@@ -1,12 +1,12 @@
 #include <arduinoFFT.h>
 #include <ESP8266WiFi.h>
 
-const char* ssid  = "#######";
-const char* password = "@@@@@@@@@@@@";
-const char* host = "fathomless-headland-57541.herokuapp.com"; //"yaha aayega website ka naam"
+const char* ssid  = "your_wifi_ssid";
+const char* password = "your_wifi_password";
+const char* host = "your_webiste_name_without_https:// or http://"; //"yaha aayega website ka naam"
 
-#define SAMPLES 64             //Must be a power of 2
-#define SAMPLING_FREQUENCY 35 //Hz, must be less than 10000 due to ADC
+#define SAMPLES 8             //Must be a power of 2
+#define SAMPLING_FREQUENCY 768 //Hz, must be less than 10000 due to ADC
 
 arduinoFFT FFT = arduinoFFT();
 
@@ -81,7 +81,7 @@ void loop() {
       return;
     }
   
-    String url = "/insert.php?device_id=" + String(device_id) + "&eeg_freq="+ String(eeg_freq);
+    String url = "/filepath/filename.php?device_id=" + String(device_id) + "&eeg_freq="+ String(eeg_freq);
     Serial.print("Requesting URL: ");
     Serial.println(url);
   
