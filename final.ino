@@ -1,9 +1,9 @@
 #include <arduinoFFT.h>
 #include <ESP8266WiFi.h>
 
-const char* ssid  = "Anthony";
-const char* password = "chris@1997";
-const char* host = "https://fathomless-headland-57541.herokuapp.com"; //"yaha aayega website ka naam"
+const char* ssid  = "#######";
+const char* password = "@@@@@@@@@@@@";
+const char* host = "fathomless-headland-57541.herokuapp.com"; //"yaha aayega website ka naam"
 
 #define SAMPLES 64             //Must be a power of 2
 #define SAMPLING_FREQUENCY 35 //Hz, must be less than 10000 due to ADC
@@ -33,8 +33,7 @@ void setup()
   Serial.println("\n WiFi connected");
   Serial.println("IP address:");
   Serial.print(WiFi.localIP());
-  Serial.println("Netmask:");
-  Serial.print(WiFi.subnetMask());
+
 
   sampling_period_us = round(1000000*(1.0/SAMPLING_FREQUENCY));
 }
@@ -60,7 +59,7 @@ void loop() {
     double peak = FFT.MajorPeak(vReal, SAMPLES, SAMPLING_FREQUENCY);
  
     /*PRINT RESULTS*/   
-    Serial.print("Frequency Value:");
+    Serial.println("Frequency Value:");
     Serial.print(peak);
     Serial.println(" ");
      
@@ -95,8 +94,6 @@ void loop() {
     String line = client.readStringUntil('\r');
     Serial.print(line);
   }
-  
-  Serial.println();
-  Serial.println("closing connection");
   delay(180000);
+  Serial.println();
 }
